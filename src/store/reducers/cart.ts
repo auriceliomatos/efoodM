@@ -25,13 +25,13 @@ const cartSlice = createSlice({
         alert('Pedido já está no carrinho')
       }
     },
-    removeItem: (state, action: PayloadAction<number>) => {
+    removeItem: (state: { pedido: any[] }, action: PayloadAction<number>) => {
       state.pedido = state.pedido.filter((p) => p.id !== action.payload)
     },
-    open: (state) => {
+    open: (state: { isOpen: boolean }) => {
       state.isOpen = true
     },
-    close: (state) => {
+    close: (state: { isOpen: boolean }) => {
       state.isOpen = false
     }
   }
